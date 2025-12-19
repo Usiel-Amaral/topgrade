@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Topgrade GUI
+Exec=topgrade-gui
+Icon=topgrade-gui
+Type=Application
+Categories=System;Utility;
+Terminal=false
+Comment=Upgrade everything in your system
