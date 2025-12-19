@@ -21,3 +21,10 @@
 
 # Backup files for any .rs files in the project
 **/*.rs.bk
+
+# AppImage Build Artifacts
+/dist/
+/AppDir/
+linuxdeploy-*.AppImage
+*.AppImage
+doc/topgrade_fixed_256.png
