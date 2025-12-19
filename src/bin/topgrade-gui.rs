@@ -149,27 +149,36 @@ impl eframe::App for TopgradeApp {
                     // Input Area (Conditional)
                     if self.input_visible {
                         ui.horizontal(|ui| {
-                            ui.label("Input:");
-                            let response = ui.add(
-                                egui::TextEdit::singleline(&mut self.input_text)
-                                    .desired_width(f32::INFINITY)
-                                    .hint_text("Type password or command here...")
-                                    .password(false) 
-                            );
+                            ui.label(t!("Topgrade GUI - Input Label")); 
 
-                            if response.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
-                                self.send_input();
-                                response.request_focus();
-                            }
-                            
-                            if ui.button("Send").clicked() {
-                                self.send_input();
-                                response.request_focus();
-                            }
-                            // Allow closing input manually
-                            if ui.button("❌").clicked() {
-                                self.input_visible = false;
-                            }
+                            ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                                // Buttons first (Right -> Left)
+                                let send_btn = ui.button(t!("Topgrade GUI - Send Button"));
+
+                                if ui.button(t!("Topgrade GUI - Cancel Button")).on_hover_text("Close Input").clicked() {
+                                    self.input_visible = false;
+                                }
+                                
+                                // Text Input (Fills remaining space)
+                                let response = ui.add(
+                                    egui::TextEdit::singleline(&mut self.input_text)
+                                        .desired_width(f32::INFINITY)
+                                        .hint_text(t!("Topgrade GUI - Input Placeholder"))
+                                        .password(false) 
+                                );
+
+                                // Handle Enter Key
+                                if response.lost_focus() && ui.input(|i| i.key_pressed(egui::Key::Enter)) {
+                                    self.send_input();
+                                    response.request_focus();
+                                }
+                                
+                                // Handle Send Button Click
+                                if send_btn.clicked() {
+                                    self.send_input();
+                                    response.request_focus();
+                                }
+                            });
                         });
                     }
                 });
@@ -199,6 +208,8 @@ impl TopgradeApp {
         let mut cmd = CommandBuilder::new(topgrade_path);
         // Disable colors in child process to reduce garbage and ensure consistent text
         cmd.env("NO_COLOR", "1");
+        // Suppress debconf dialog warnings
+        cmd.env("DEBIAN_FRONTEND", "readline");
         
         // Spawn the process
         let _child = pair.slave.spawn_command(cmd).expect("Failed to spawn topgrade");

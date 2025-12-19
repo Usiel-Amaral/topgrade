@@ -35,6 +35,7 @@ fi
 
 # 1. Build the binary
 echo "Compiling release binary..."
+cargo build --release --bin topgrade
 cargo build --release --bin "$BIN_NAME" --features gui
 
 # 2. Prepare AppDir
@@ -46,6 +47,7 @@ mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
 mkdir -p AppDir/usr/share/icons/hicolor/scalable/apps
 
 # Copy binary
+cp "target/release/topgrade" AppDir/usr/bin/
 cp "target/release/$BIN_NAME" AppDir/usr/bin/
 
 # Copy icons

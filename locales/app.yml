@@ -1522,3 +1522,43 @@ _version: 2
   lt: "Paspauskite Enter, kad uždarytumėte..."
   zh_CN: "按 Enter 关闭..."
   zh_TW: "按 Enter 關閉..."
+
+"Topgrade GUI - Send Button":
+  en: "Send ➡️"
+  pt_BR: "Enviar ➡️"
+  es: "Enviar ➡️"
+  fr: "Envoyer ➡️"
+  de: "Senden ➡️"
+  lt: "Siųsti ➡️"
+  zh_CN: "发送 ➡️"
+  zh_TW: "發送 ➡️"
+
+"Topgrade GUI - Cancel Button":
+  en: "❌"
+  pt_BR: "❌"
+  es: "❌"
+  fr: "❌"
+  de: "❌"
+  lt: "❌"
+  zh_CN: "❌"
+  zh_TW: "❌"
+
+"Topgrade GUI - Input Label":
+  en: "Input:"
+  pt_BR: "Entrada:"
+  es: "Entrada:"
+  fr: "Entrée:"
+  de: "Eingabe:"
+  lt: "Įvestis:"
+  zh_CN: "输入:"
+  zh_TW: "輸入:"
+
+"Topgrade GUI - Input Placeholder":
+  en: "Type password or command here..."
+  pt_BR: "Digite a senha ou o comando aqui..."
+  es: "Escriba la contraseña o el comando aquí..."
+  fr: "Tapez le mot de passe ou la commande ici..."
+  de: "Geben Sie hier das Passwort oder den Befehl ein..."
+  lt: "Įrašykite slaptažodį arba komandą čia..."
+  zh_CN: "在此处输入密码或命令..."
+  zh_TW: "在此處輸入密碼或命令..."
